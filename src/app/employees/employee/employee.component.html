@@ -1,0 +1,87 @@
+<!-- <form #employeeForm ="ngForm">
+  <div class="form-group">
+    <label>name</label>
+    <input class="form-control" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name" placeholder="FULLNAME">
+  </div>
+  <div class="form-group">
+    <label>position</label>
+    <input class="form-control" name="position" #position="ngModel" [(ngModel)]="employeeService.selectedEmployee.position" placeholder="POSITION">
+  </div>
+  <div class="form-group">
+    <label>office</label>
+    <input class="form-control" name="office" #office="ngModel" [(ngModel)]="employeeService.selectedEmployee.office" placeholder="OFFICE">
+  </div>
+  <div class="form-group">
+    <label>salary</label>
+    <input class="form-control" name="salary" #salary="ngModel" [(ngModel)]="employeeService.selectedEmployee.salary" placeholder="SALARY">
+  </div>
+</form> -->
+
+<!-- <a href="./list">Show Employees</a> -->
+<br>
+<button (click)=showEmployees() class="pull-right btn btn-primary" style="margin-left:2px; margin-right:2px;">Show Employees</button>
+ <a href="./" class="pull-right btn btn-primary" style="margin-left:2px; margin-right:2px;"><span class="fa fa-key"></span> Logout</a>
+
+<form [formGroup]="empForm" (ngSubmit)="addEmployee()" >
+    
+    <div class="form-group">
+      <br>
+
+     
+        <label>EMPLOYEE ID</label>
+        <input type="text" class="form-control" formControlName="empid" [(ngModel)]="employeeservice.selectedEmployee.empid"> 
+      
+        <div *ngIf="Empid.touched && Empid.errors"> 
+          <!-- its function is to check if the user actually touched the empid field  -->
+           
+            <div class="alert alert-danger" *ngIf="Empid.errors.required">
+               Empid is required
+               <!-- empid required field if shows error it will show error i.e has to satisfy both touched and error property -->
+            </div>
+          </div>
+
+      <label>NAME</label>
+        <input type="text"  class="form-control" formControlName="name" placeholder="NAME" [(ngModel)]="employeeservice.selectedEmployee.name"> 
+        <br>
+
+        <div *ngIf="Name.touched && Name.errors">
+
+            <div class="alert alert-danger" *ngIf="Name.errors.required">
+                Name is required
+            </div>
+            <!-- different types of validators -->
+
+            <div class="alert alert-danger" *ngIf="Name.errors.minlength">
+                Minimum length is required is 5 characters
+            </div>
+
+            
+            <div class="alert alert-danger" *ngIf="Name.errors.maxlength">
+                Maximum length is required is 16 characters
+            </div>
+
+          </div>
+
+
+        <label>ADDRESS</label>
+        <input type="text" class="form-control" formControlName="residence" placeholder="ADDRESS" [(ngModel)]="employeeservice.selectedEmployee.residence">
+        <br>
+        <label>SALARY</label>
+        <div class="input-group">
+            <span class="fa fa-dollar icons"></span>    
+            <input type="number" class="form-control" formControlName="salary" placeholder="SALARY" [(ngModel)]="employeeservice.selectedEmployee.salary">
+        </div>
+        
+        <br>
+        <button type="submit" id="savebtn" class="btn btn-success" value="save" [disabled]="!empForm.valid" >  <span class="fa fa-save icons saveIcon"></span> {{employeeservice.saveUpdateLabel}}</button> 
+
+        &nbsp; &nbsp;
+        <button type="button" class="btn btn-warning" (click)="resetForm()" ><span class="fa fa-refresh icons resetIcon"></span> RESET</button>
+        <!-- <input type="submit" value="save"> -->
+        
+      </div>
+
+
+
+
+</form>

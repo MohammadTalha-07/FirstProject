@@ -1,0 +1,63 @@
+
+
+<p>
+  Employee List
+</p>
+
+
+<!-- <p>Add an document into collection emp2 <button (click)="addAnItem()">Add</button></p>
+
+<p>Remove a document from collection emp2 <button (click)="removeItem()">Delete</button></p>
+
+<p>Update a document from collection emp2 <button (click)="updateItem()">Update</button></p>
+<p>Update a document from collection emp2 <button (click)=" TestUpdate()">UpdateTest</button></p>
+
+<p>List all documents from collection emp2 <button (click)="getAllItems()">Get all data</button></p>
+
+<p>new insert method <button (click)="TestInsert()">test button</button></p>
+<p>new insert method <button (click)=" TestDelete()">remove button</button></p> -->
+
+
+
+<!-- <h1>Length = {{ users.length}}</h1> -->
+
+<a href="./" class="pull-right btn btn-primary" style="margin-left:2px; margin-right:2px;"><span class="fa fa-key"></span> Logout</a>
+
+
+<div *ngIf="users == undefined || users.length == 0">
+  <div class="loader"></div>
+</div>
+<div class="table">
+  <table class="table table-stripped">
+
+    <thead *ngIf="users.length > 0">
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Edit
+        </th>
+        <th>
+          Delete
+        </th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td style="cursor: default;">
+              {{user.name}}
+            </td>
+            <td>
+              <button (click)="edit(user)" class="fa fa-pencil btn btn-secondary" style="color:#fff;"></button>
+            </td>
+            <td>
+              <button (click)="delete(user.key)" class="fa fa-trash btn btn-secondary" style="color:#fff;"></button>
+            </td>
+          </tr>
+    </tbody>
+  </table>
+</div>
+<a href="./employee/empForm"><span class="fa fa-home"></span>Home</a>

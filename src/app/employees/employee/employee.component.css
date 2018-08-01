@@ -1,0 +1,11 @@
+#savebtn{
+    /* margin-right: 50px; */
+}
+
+.icons{
+    font-size: 2em;
+}
+
+.saveIcon, .resetIcon{
+    font-size: 1em;
+}
